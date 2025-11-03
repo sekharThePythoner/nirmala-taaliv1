@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #101010, #1a1a40);
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+#gameContainer {
+  position: relative;
+  width: 90%;
+  height: 400px;
+  background: url("assets/bg.png") repeat-x;
+  background-size: cover;
+  border: 3px solid #00ffff;
+  border-radius: 20px;
+  overflow: hidden;
+  animation: scrollBg 3s linear infinite;
+}
+
+@keyframes scrollBg {
+  from { background-position: 0; }
+  to { background-position: -400px; }
+}
+
+#player {
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  width: 60px;
+  height: 60px;
+  background: url("assets/nirmala.png") center/cover no-repeat;
+}
+
+.jump {
+  animation: jumpAnim 0.6s ease-out;
+}
+
+@keyframes jumpAnim {
+  0% { bottom: 0; }
+  50% { bottom: 120px; }
+  100% { bottom: 0; }
+}
+
+#obstacle {
+  position: absolute;
+  bottom: 0;
+  right: -60px;
+  width: 60px;
+  height: 60px;
+  background: url("assets/rahul.png") center/cover no-repeat;
+  animation: moveObs 2s linear infinite;
+}
+
+@keyframes moveObs {
+  from { right: -60px; }
+  to { right: 100%; }
+}
+
+#crashScreen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 10;
+}
+
+#crashScreen img {
+  width: 250px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #ff0099;
+}
+
+#retryBtn {
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #ff00cc;
+}
+
+#retryBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #ff33ff;
+}
+#scoreDisplay {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 22px;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 18px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #00ffff;
+}
